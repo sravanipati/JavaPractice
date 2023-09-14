@@ -1,0 +1,60 @@
+package com.alacriti.paymentgateway.simulator.controller;
+
+import java.sql.SQLException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.alacriti.paymentgateway.simulator.model.CheckPaymentStatusResponse;
+import com.alacriti.paymentgateway.simulator.model.Merchant;
+import com.alacriti.paymentgateway.simulator.model.MerchantPaymentRequest;
+import com.alacriti.paymentgateway.simulator.model.MerchantPaymentResponse;
+import com.alacriti.paymentgateway.simulator.model.MerchantResponse;
+import com.alacriti.paymentgateway.simulator.service.PaymentGatewayService;
+
+@RestController
+@RequestMapping("/paymentgateway")
+public class PaymentGatewayController {
+	@Autowired
+	private PaymentGatewayService paymentService;
+
+	@PostMapping("/addMerchant")
+	public ResponseEntity<MerchantResponse> addMerchant(@RequestBody Merchant merchant) throws SQLException {
+		
+	    try {
+	        boolean exists = paymentService.merchantExists(merchant.getMerchantId());
+	        if (exists) {
+	        	MerchantResponse response = new MerchantResponse(false, "Merchant with the same merchantId already exists.");
+	        	return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
+	        } else {
+	        	paymentService.addMerchant(merchant);
+	        	MerchantResponse response = new MerchantResponse(true, "Merchant added successfully.");
+	            return ResponseEntity.ok(response);
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        MerchantResponse response = new MerchantResponse(false, "Failed to add merchant.");
+	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+	    }
+
+	}
+
+	@PostMapping("/addPayment")
+	public MerchantPaymentResponse addPayment(@RequestBody MerchantPaymentRequest paymentRequest) throws SQLException {
+
+		return paymentService.addPayment(paymentRequest);
+	}
+
+	@GetMapping("/payment_status/{paymentId}")
+	public CheckPaymentStatusResponse getPaymentStatusForPaymentId(@PathVariable String paymentId) throws SQLException {
+		return paymentService.getPaymentStatusForPaymentId(paymentId);
+	}
+
+}

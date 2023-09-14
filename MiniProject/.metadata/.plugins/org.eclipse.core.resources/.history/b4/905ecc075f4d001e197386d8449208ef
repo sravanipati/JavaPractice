@@ -1,0 +1,68 @@
+package com.alacriti.paymentgateway.simulator.service;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.alacriti.paymentgateway.simulator.dao.PaymentGatewayDao;
+import com.alacriti.paymentgateway.simulator.model.CheckPaymentStatusResponse;
+import com.alacriti.paymentgateway.simulator.model.Merchant;
+import com.alacriti.paymentgateway.simulator.model.MerchantPaymentRequest;
+import com.alacriti.paymentgateway.simulator.model.MerchantPaymentResponse;
+import com.alacriti.paymentgateway.simulator.model.MerchantResponse;
+
+@Service
+public class PaymentGatewayService {
+	@Autowired
+	private PaymentGatewayDao paymentGatewayDao;
+	@Autowired
+	private DataSource dataSource;
+	Connection connection = null;
+	
+	public boolean merchantExists(String merchantId) throws SQLException {
+	    return paymentGatewayDao.merchantExists(connection, merchantId);
+	}
+
+	public MerchantResponse addMerchant(Merchant merchant) throws SQLException {
+		connection = dataSource.getConnection();
+		MerchantResponse merchantResponse = new MerchantResponse();
+		try {
+			boolean exists = paymentGatewayDao.merchantExists(connection, merchant.getMerchantId());
+			if(exists) {
+				merchantResponse = new MerchantResponse(false,"Merchant with the same merchantId already exists.");
+			}
+			merchantResponse =  paymentGatewayDao.addMerchant(connection, merchant);
+		} finally {
+			connection.close();
+		}
+		return merchantResponse;
+
+	}
+
+	public MerchantPaymentResponse addPayment(MerchantPaymentRequest paymentRequest) throws SQLException {
+		connection = dataSource.getConnection();
+		MerchantPaymentResponse paymentResponse = null;
+		try {
+			paymentResponse = paymentGatewayDao.addPayment(connection, paymentRequest);
+
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			connection.close();
+		}
+		return paymentResponse;
+
+	}
+
+	public CheckPaymentStatusResponse getPaymentStatusForPaymentId(String paymentid) throws SQLException {
+		connection = dataSource.getConnection();
+		return paymentGatewayDao.getPaymentStatusForPaymentId(connection, paymentid);
+
+	}
+
+}

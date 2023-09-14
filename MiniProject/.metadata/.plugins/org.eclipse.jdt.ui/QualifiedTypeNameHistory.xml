@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.alacriti.paymentgateway.simulator.dao.MerchantDao"/>
+    <fullyQualifiedTypeName name="org.springframework.web.client.RestTemplate"/>
+    <fullyQualifiedTypeName name="org.springframework.http.HttpHeaders"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="org.springframework.http.MediaType"/>
+    <fullyQualifiedTypeName name="org.springframework.http.HttpEntity"/>
+    <fullyQualifiedTypeName name="org.springframework.http.HttpMethod"/>
+    <fullyQualifiedTypeName name="com.alacriti.merchantmodel.Merchant"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="com.alacriti.merchantservice.MerchantService"/>
+    <fullyQualifiedTypeName name="java.sql.SQLException"/>
+    <fullyQualifiedTypeName name="com.alacriti.merchantmodel.Payment"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+    <fullyQualifiedTypeName name="com.alacriti.merchantmodel.PaymentStatus"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
+    <fullyQualifiedTypeName name="com.alacriti.paymentgateway.simulator.dao.Merchant"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.alacriti.paymentgateway.simulator.service.IsMerchantExistsService"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="javax.management.RuntimeErrorException"/>
+    <fullyQualifiedTypeName name="com.alacriti.paymentgateway.simulator.dao.PaymentGatewayDao"/>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="com.alacriti.paymentgateway.simulator.dao.PaymentStatus"/>
+    <fullyQualifiedTypeName name="com.alacriti.merchant.model.PaymentVo"/>
+    <fullyQualifiedTypeName name="com.alacriti.merchant.model.PaymentResponse"/>
+    <fullyQualifiedTypeName name="java.util.Random"/>
+    <fullyQualifiedTypeName name="com.alacriti.paymentgateway.simulator.model.PaymentRequest"/>
+    <fullyQualifiedTypeName name="com.alacriti.paymentgateway.simulator.dao.Payment"/>
+    <fullyQualifiedTypeName name="com.alacriti.merchant.model.PaymentStatus"/>
+    <fullyQualifiedTypeName name="org.springframework.web.util.UriComponentsBuilder"/>
+    <fullyQualifiedTypeName name="com.alacriti.merchant.model.CheckPaymentStatusResponse"/>
+    <fullyQualifiedTypeName name="com.alacriti.paymentgateway.simulator.model.PaymentResponse"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
+    <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="com.alacriti.paymentgateway.simulator.model.MerchantResponse"/>
+    <fullyQualifiedTypeName name="com.alacriti.merchant.model.MerchantResponse"/>
+</qualifiedTypeNameHistroy>

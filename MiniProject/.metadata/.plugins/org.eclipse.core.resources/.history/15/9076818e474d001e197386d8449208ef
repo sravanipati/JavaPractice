@@ -1,0 +1,31 @@
+package com.alacriti.paymentgateway.simulator.model;
+
+public class Merchantrequest {
+	private String checkMerchant;
+	private Merchant merchant;
+	public Merchantrequest() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Merchantrequest(String checkMerchant, Merchant merchant) {
+		super();
+		this.checkMerchant = checkMerchant;
+		this.merchant = merchant;
+	}
+	public String getCheckMerchant() {
+		return checkMerchant;
+	}
+	public void setCheckMerchant(String checkMerchant) {
+		this.checkMerchant = checkMerchant;
+	}
+	public Merchant getMerchant() {
+		return merchant;
+	}
+	public void setMerchant(Merchant merchant) {
+		this.merchant = merchant;
+	}
+	
+	
+	
+
+}
